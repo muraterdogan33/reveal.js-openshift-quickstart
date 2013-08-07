@@ -1,356 +1,81 @@
-<!doctype html>
-<html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<title>Develop by Dong Van Thai</title><link href="frogit08.png" rel="shortcut icon" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="function.js"></script>
+<script type="text/javascript" src="http://dongvanthai-frogit08.rhcloud.com/thongbao.js"></script>
+<div id="result" style="position:absolute;margin-left:270px; margin-top:10px;"></div>
+<div id="info" style="position:absolute; margin-left:270px;margin-top:30px;"></div>
+<div id="thongbao" style="position:absolute;margin-top:110px;"></div>
+<div id='input'>
+Facebook ID: <input id='idfb' value=""/><br>
+Session ID: <input id='user' value="" style="width:170px"/><br>
+<input style="width:245px" type="button" onclick="formload()" value="Load Dragon Information" /><br>
+<a class="ovalbutton" href="http://www.mediafire.com/download/riyrkhue91cqn1i/huongdan.doc" target="_new"><span>Tải hướng dẫn</span></a>
+<a class="ovalbutton" href="http://dongvanthai-frogit08.rhcloud.com/linkhost.php" target="_new"><span>Host khác</span></a>
+<a class="ovalbutton" href="http://dongvanthai-frogit08.rhcloud.com" target="_new"><span>Báo lỗi</span></a>
+</div>
+<div id='tool' style="margin-top:45px; display:none;">
+List Items: <select id="hatid"><option value="1">1 - Hatchery 1</option><option value="2">2 - Nature Crystal</option><option value="3">3 - Terra Crystal</option><option value="4">4 - Flame Crystal</option><option value="5">5 - Ice Crystal</option><option value="6">6 - Electric Crystal</option><option value="7">7 - Sea Crystal</option><option value="8">8 - Dark Crystal</option><option value="9">9 - Magic Temple</option><option value="10">10 - Noble Temple</option><option value="11">11 - Knight Temple</option><option value="12">12 - Master Temple</option><option value="14">14 - Legend Crystal</option><option value="15">15 - Metal Crystal</option><option value="16">16 - Food Farm</option><option value="17">17 - Big Food Farm</option><option value="18">18 - Huge Food Farm</option><option value="19">19 - Breeding Mountain</option><option value="20">20 - Stadium</option><option value="21">21 - Deus Statue</option><option value="22">22 - Training Center</option><option value="24">24 - Nature Habitat</option><option value="25">25 - Big Nature Habitat</option><option value="26">26 - Terra Habitat</option><option value="27">27 - Big Terra Habitat</option><option value="28">28 - Flame Habitat</option><option value="29">29 - Big Flame Habitat</option><option value="30">30 - Sea Habitat</option><option value="31">31 - Big Sea Habitat</option><option value="32">32 - Ice Habitat</option><option value="33">33 - Big Ice Habitat</option><option value="34">34 - Electric Habitat</option><option value="35">35 - Big Electric Habitat</option><option value="36">36 - Metal Habitat</option><option value="37">37 - Big Metal Habitat</option><option value="38">38 - Dark Habitat</option><option value="39">39 - Big Dark Habitat</option><option value="40">40 - Legend Habitat</option><option value="45">45 - Rock</option><option value="46">46 - Medium Rock</option><option value="47">47 - Big Rock</option><option value="48">48 - Bush (rumput)</option><option value="49">49 - Medium Tree</option><option value="50">50 - Big Tree</option><option value="54">54 - Terrain</option><option value="55">55 - Hatchery 2</option><option value="56">56 - Hatchery 3</option><option value="57">57 - Hatchery 4</option><option value="58">58 - Elf home</option><option value="59">59 - Fountain</option><option value="60">60 - Magic Mushroom</option><option value="61">61 - Glowy Flower</option><option value="62">62 - Cateye Flower</option><option value="63">63 - Blue Snail Plant</option><option value="64">64 - Purple Snail Plant</option><option value="65">65 - Chinese Arch</option><option value="66">66 - Little Dragon Statue</option><option value="67">67 - Dragon Statue</option><option value="68">68 - Old Pond</option><option value="69">69 - Willow Tree</option><option value="72">72 - Stone tile</option><option value="73">73 - Fancy tile</option><option value="74">74 - Luxury tile</option><option value="75">75 - Super tile</option><option value="76">76 - Huge Rock</option><option value="77">77 - Giant Rock</option><option value="79">79 - Dragon Market</option><option value="80">80 - Ultra Breeding Tree</option><option value="81">81 - Recruitment Tavern</option><option value="82">82 - Ying yang flag</option><option value="83">83 - Dragonhead flag</option><option value="84">84 - Dragon flag</option><option value="85">85 - Cloud flag</option><option value="86">86 - Egg flag</option><option value="87">87 - Tower flag</option><option value="88">88 - Dragon Hedge</option><option value="89">89 - Luxury Egg Statue</option><option value="90">90 - Kindergarten</option><option value="101">101 - Snail Wizard</option><option value="102">102 - Lost Baby Elf</option><option value="103">103 - Lost Baby Unicorn</option><option value="104">104 - Gold Tree</option><option value="105">105 - Play Social Empires</option><option value="106">106 - Play Social Wars</option><option value="110">110 - Pure Metal Habitat</option><option value="111">111 - Pure Terra Habitat</option><option value="112">112 - Pure Ice Habitat</option><option value="113">113 - Pure Sea Habitat</option><option value="114">114 - Pure Nature Habitat</option><option value="115">115 - Pure Flame Habitat</option><option value="116">116 - Pure Dark Habitat</option><option value="117">117 - Pure Electric Habitat</option><option value="118">118 - Pure Habitat</option><option value="119">119 - Dragon Club Statue</option><option value="120">120 - Breeding boost</option><option value="121">121 - Uncle Sam Dragon Island</option><option value="122">122 - Merry Xmas Island</option><option value="124">124 - Xmas Tree</option><option value="125">125 - Santa Habitat</option><option value="126">126 - Treasure Hunt Island</option><option value="127">127 - Pirate Island</option><option value="128">128 - Deus Vault</option><option value="129">129 - Dinosaur Island</option><option value="130">130 - Dragonarium</option><option value="131">131 - Alien Island (island)</option><option value="132">132 - Play Dragon City Mobile</option><option value="133">133 - Central Island iphone</option><option value="134">134 - Egyptian Habitat</option><option value="135">135 - egyptian Island</option><option value="136">136 - Central Island iphone 2</option><option value="137">137 - Ankh</option><option value="138">138 - Dungeon Base</option><option value="139">139 - Dungeon Habitat</option><option value="140">140 - Light Habitat</option><option value="141">141 - Big Light Habitat</option><option value="142">142 - Epic Habitat</option><option value="143">143 - Big Epic Habitat</option><option value="144">144 - Ancient Habitat</option><option value="145">145 - Big Ancient Habitat</option><option value="146">146 - Dungeon Island</option><option value="147">147 - Dungeon key</option><option value="148">148 - Olympus Island</option><option value="149">149 - Greek Wase</option><option value="150">150 - Olympus Habitat</option><option value="151">151 - Play Monster Legends</option><option value="152">152 - Play DCa</option><option value="153">153 - Big Pure Habitat</option><option value="154">154 - Small Mister Egg</option><option value="155">155 - Medium Mister Egg</option><option value="156">156 - Large Mister Egg</option><option value="157">157 - Super Mister Egg</option></select>
+<input onclick="buydragon(1)" type="button" value="Buy" />
+List Dragons: <select id="eggid"><option value="1000">1000 - Nature Dragon</option><option value="1001">1001 - Firebird Dragon</option><option value="1002">1002 - Mercury Dragon</option><option value="1003">1003 - Gummy Dragon</option><option value="1004">1004 - Lantern Fish Dragon</option><option value="1005">1005 - Tropical Dragon</option><option value="1006">1006 - Zombie Dragon</option><option value="1007">1007 - Petroleum Dragon</option><option value="1008">1008 - Dandelion Dragon</option><option value="1009">1009 - Jade Dragon</option><option value="1010">1010 - Star Dragon</option><option value="1011">1011 - Terra Dragon</option><option value="1012">1012 - Flaming rock Dragon</option><option value="1013">1013 - Armadillo Dragon</option><option value="1014">1014 - Cloud Dragon</option><option value="1015">1015 - Laser Dragon</option><option value="1016">1016 - Mud Dragon</option><option value="1017">1017 - Nenufar Dragon</option><option value="1018">1018 - Hedgehog Dragon</option><option value="1019">1019 - Icecube Dragon</option><option value="1020">1020 - Flame Dragon</option><option value="1021">1021 - Neon Dragon</option><option value="1022">1022 - Pearl Dragon</option><option value="1023">1023 - Cool Fire Dragon</option><option value="1024">1024 - Medieval Dragon</option><option value="1025">1025 - Penguin Dragon</option><option value="1026">1026 - Ice Dragon</option><option value="1028">1028 - Carnivore Plant Dragon</option><option value="1029">1029 - Fluorescent Dragon</option><option value="1031">1031 - Electric Dragon</option><option value="1032">1032 - Battery Dragon</option><option value="1033">1033 - Sea Dragon</option><option value="1039">1039 - Metal Dragon</option><option value="1040">1040 - Dark Dragon</option><option value="1041">1041 - Legendary Dragon</option><option value="1042">1042 - Vampire Dragon</option><option value="1043">1043 - Alpine Dragon</option><option value="1044">1044 - Poo Dragon</option><option value="1045">1045 - Vulcano Dragon</option><option value="1046">1046 - Blizzard Dragon</option><option value="1047">1047 - Rattlesnake Dragon</option><option value="1048">1048 - Gold Dragon</option><option value="1049">1049 - Soccer Dragon</option><option value="1050">1050 - Platinum Dragon</option><option value="1051">1051 - Pirate Dragon</option><option value="1052">1052 - Crystal Dragon</option><option value="1053">1053 - Wind Dragon</option><option value="1054">1054 - Mirror Dragon</option><option value="1055">1055 - Coral Dragon</option><option value="1056">1056 - Spicy Dragon</option><option value="1057">1057 - Waterfall Dragon</option><option value="1058">1058 - Cactus Dragon</option><option value="1059">1059 - Storm Dragon</option><option value="1060">1060 - Ice Cream Dragon</option><option value="1061">1061 - Mojito Dragon</option><option value="1062">1062 - Chameleon Dragon</option><option value="1063">1063 - Hot Metal Dragon</option><option value="1064">1064 - Snowflake Dragon</option><option value="1065">1065 - Seashell Dragon</option><option value="1066">1066 - Moose Dragon</option><option value="1067">1067 - Dragonfly Dragon</option><option value="1068">1068 - Venom Dragon</option><option value="1069">1069 - Steampunk Dragon</option><option value="1070">1070 - Dark Fire Dragon</option><option value="1071">1071 - Butterfly Dragon</option><option value="1072">1072 - Robot Dragon</option><option value="1073">1073 - Pure Terra Dragon</option><option value="1074">1074 - Pure Flame Dragon</option><option value="1075">1075 - Pure Sea Dragon</option><option value="1076">1076 - Pure Nature Dragon</option><option value="1077">1077 - Pure Electric Dragon</option><option value="1078">1078 - Pure Ice Dragon</option><option value="1079">1079 - Pure Metal Dragon</option><option value="1080">1080 - Pure Dark Dragon</option><option value="1081">1081 - Pure Dragon</option><option value="1082">1082 - Paladin Dragon</option><option value="1083">1083 - Fossil Dragon</option><option value="1084">1084 - Seahorse Dragon</option><option value="1085">1085 - Sky Dragon</option><option value="1086">1086 - Bat Dragon</option><option value="1087">1087 - Aztec Dragon</option><option value="1088">1088 - Chinese Dragon</option><option value="1089">1089 - King Dragon</option><option value="1090">1090 - Wizard Dragon</option><option value="1091">1091 - Two headed Dragon</option><option value="1092">1092 - Plankton Dragon</option><option value="1093">1093 - Uncle Sam Dragon</option><option value="1094">1094 - Evil Pumpkin Dragon</option><option value="1095">1095 - Viking Dragon</option><option value="1096">1096 - Jelly Dragon</option><option value="1097">1097 - Quetzal Dragon</option><option value="1098">1098 - Queen Dragon</option><option value="1099">1099 - Thanksgiving Dragon</option><option value="1100">1100 - Santa Dragon</option><option value="1101">1101 - Ghost Dragon</option><option value="1102">1102 - Deep Forest Dragon</option><option value="1103">1103 - Ninja Dragon</option><option value="1104">1104 - Ice&Fire Dragon</option><option value="1105">1105 - Aurora Dragon</option><option value="1106">1106 - Music Dragon</option><option value="1107">1107 - Block Dragon</option><option value="1109">1109 - Alien Dragon</option><option value="1110">1110 - Great White Dragon</option><option value="1111">1111 - Pharaoh Dragon</option><option value="1112">1112 - Paradise Dragon</option><option value="1113">1113 - Gaudy Dragon</option><option value="1114">1114 - Cool Fire Dragon</option><option value="1115">1115 - Octopus Dragon</option><option value="1116">1116 - Jellyfish Dragon</option><option value="1117">1117 - Carnival Dragon</option><option value="1118">1118 - Love Dragon</option><option value="1119">1119 - Dujur Dragon</option><option value="1120">1120 - T-rex Dragon</option><option value="1121">1121 - Brontosaurus Dragon</option><option value="1122">1122 - Hydra Dragon</option><option value="1123">1123 - Mars Dragon</option><option value="1124">1124 - Prisma Dragon</option><option value="1125">1125 - Centipede Dragon</option><option value="1126">1126 - Emerald Dragon</option><option value="1127">1127 - St.Patricks Dragon</option><option value="1128">1128 - Ruby Dragon</option><option value="1129">1129 - Angry Dragon</option><option value="1130">1130 - Lava Dragon</option><option value="1131">1131 - Joker Dragon</option><option value="1132">1132 - Chainmail Dragon</option><option value="1133">1133 - Sphynx Dragon</option><option value="1134">1134 - Mummy Dragon</option><option value="1135">1135 - Diamond Dragon</option><option value="1136">1136 - Demon Dragon</option><option value="1137">1137 - Gargoyle Dragon</option><option value="1138">1138 - Deep Red Dragon</option><option value="1139">1139 - Blue Dragon</option><option value="1140">1140 - Archangel Dragon</option><option value="1141">1141 - Lightning Dragon</option><option value="1142">1142 - Ancient Dragon</option><option value="1143">1143 - Wurm Dragon</option><option value="1144">1144 - Light Dragon</option><option value="1145">1145 - Epic Dragon</option><option value="1146">1146 - Eternal Dragon</option><option value="1147">1147 - Glacial Dragon</option><option value="1148">1148 - Cerberus Dragon</option><option value="1149">1149 - Burning Dragon</option><option value="1150">1150 - Treasure Dragon</option><option value="1151">1151 - Granite Dragon</option><option value="1152">1152 - Boned Dragon</option><option value="1153">1153 - Wyvern Dragon</option><option value="1154">1154 - Predator Dragon</option><option value="1155">1155 - Poseydon Dragon</option><option value="1156">1156 - Hades Dragon</option><option value="1157">1157 - Atlas Dragon</option><option value="1158">1158 - Justice Dragon</option><option value="1159">1159 - Sun Dragon</option><option value="1160">1160 - Gaia Dragon</option><option value="1161">1161 - Luminsicent Dragon</option><option value="1162">1162 - Rainbow Dragon</option><option value="1163">1163 - War Dragon</option><option value="1164">1164 - Juggernaut Dragon</option><option value="1165">1165 - Colossal Dragon</option><option value="1166">1166 - Red Woods Dragon</option><option value="1167">1167 - Leviathan Dragon</option><option value="1168">1168 - Panzer Dragon</option><option value="1169">1169 - Nirobi Dragon</option><option value="1170">1170 - Droconos Dragon</option><option value="1171">1171 - Monstruous Dragon</option><option value="1172">1172 - Ivory Dragon</option><option value="1173">1173 - Moon Dragon</option><option value="1174">1174 - Toxic Dragon</option><option value="1175">1175 - Obsidian Dragon</option><option value="1176">1176 - Meteor Dragon</option><option value="1177">1177 - Hammer Dragon</option><option value="1178">1178 - Tribal Dragon</option><option value="1179">1179 - Origami Dragon</option><option value="1180">1180 - Tiny Dragon</option></select>
+<input onclick="buydragon(2)" type="button" value="Buy" /><br>
+Item On Island: <select id="hiid"><option>Item On Island</option></select>
+<select id="slid" onchange="changelist()"><option>Select All Item</option></select>
+<input onclick="sellhabitat(1)" type="button" value="Sell" />
+<input onclick="storehabitat(1)" type="button" value="Store" />
+<input onclick="movehabitat(1)" type="button" value="Move" /><br>
+Item In Storage: <select id="hsid"><option>Item In Storage</option></select>
+<input onclick="sellhabitat(2)" type="button" value="Sell" />
+<input onclick="sellall('sitem')" type="button" value="Sell All" />
+<input onclick="movehabitat(2)" type="button" value="Use" />
+Coordinates X: <select id="mx"><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option><option value="81">81</option><option value="82">82</option><option value="83">83</option><option value="84">84</option><option value="85">85</option><option value="86">86</option><option value="87">87</option><option value="88">88</option><option value="89">89</option><option value="90">90</option><option value="91">91</option><option value="92">92</option><option value="93">93</option><option value="94">94</option><option value="95">95</option></select>
+Y: <select id="my"><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option><option value="81">81</option><option value="82">82</option><option value="83">83</option><option value="84">84</option><option value="85">85</option><option value="86">86</option><option value="87">87</option><option value="88">88</option><option value="89">89</option><option value="90">90</option><option value="91">91</option><option value="92">92</option><option value="93">93</option><option value="94">94</option><option value="95">95</option></select><br>
+Dragon On Inland: <select id="diid"><option>Dragon On Island</option></select>
+<input onclick="selldragon(1)" type="button" value="Sell" />
+<input onclick="storehabitat(2)" type="button" value="Store" /><br>
+Dragon In Storage: <select id="dsid"><option>Dragon In Storage</option></select>
+<input onclick="selldragon(2)" type="button" value="Sell" /><input onclick="sellall('sdragon')" type="button" value="Sell All" />
+<input onclick="choosehabitat('s')" type="button" id='chids' value="Choose Hatbitat" />
+<input onclick="movedragon(2)" type="button" value="Use" /><br>
+Move Dragon: <input type="button" onclick="choosedragon(0)" id='idd0' value="Choose Dragon" />
+<input onclick="choosehabitat('m')" type="button" id='chidm' value="Choose Hatbitat" />
+<input onclick="movedragon(1)" type="button" value="Move" />Deus Vault: <select id="deus"><option>Unlock Formula</option></select>
+<input onclick="formula()" type="button" value="Unlock" /><br>
+Egg On Hatchery: <select id="egid"><option>Eggs On Hatchery</option></select>
+<input onclick="selldragon(3)" type="button" value="Sell" /><input onclick="sellall('egg')" type="button" value="Sell All" />
+<input id='chidh' onclick="choosehabitat('h')" type="button" value="Choose Habitat" />
+<input onclick="hatchdragon()" type="button" value="Hacth" /><br>
+Breed Dragon: <input id='idd1' value="Choose Dragon" onclick="choosedragon(1)" type="button" /> 
+<input onclick="choosedragon(2)" type="button" id='idd2' value="Choose Dragon" />
+<input onclick="choosehabitat('b')" type="button" id='chidb' value="Choose Breeding" />
+<select id="want"><option value="0">Select Wanted Result</option><option value="1000">1000 - Nature Dragon</option><option value="1001">1001 - Firebird Dragon</option><option value="1002">1002 - Mercury Dragon</option><option value="1003">1003 - Gummy Dragon</option><option value="1004">1004 - Lantern Fish Dragon</option><option value="1005">1005 - Tropical Dragon</option><option value="1006">1006 - Zombie Dragon</option><option value="1007">1007 - Petroleum Dragon</option><option value="1008">1008 - Dandelion Dragon</option><option value="1009">1009 - Jade Dragon</option><option value="1010">1010 - Star Dragon</option><option value="1011">1011 - Terra Dragon</option><option value="1012">1012 - Flaming rock Dragon</option><option value="1013">1013 - Armadillo Dragon</option><option value="1014">1014 - Cloud Dragon</option><option value="1015">1015 - Laser Dragon</option><option value="1016">1016 - Mud Dragon</option><option value="1017">1017 - Nenufar Dragon</option><option value="1018">1018 - Hedgehog Dragon</option><option value="1019">1019 - Icecube Dragon</option><option value="1020">1020 - Flame Dragon</option><option value="1021">1021 - Neon Dragon</option><option value="1022">1022 - Pearl Dragon</option><option value="1023">1023 - Cool Fire Dragon</option><option value="1024">1024 - Medieval Dragon</option><option value="1025">1025 - Penguin Dragon</option><option value="1026">1026 - Ice Dragon</option><option value="1028">1028 - Carnivore Plant Dragon</option><option value="1029">1029 - Fluorescent Dragon</option><option value="1031">1031 - Electric Dragon</option><option value="1032">1032 - Battery Dragon</option><option value="1033">1033 - Sea Dragon</option><option value="1039">1039 - Metal Dragon</option><option value="1040">1040 - Dark Dragon</option><option value="1041">1041 - Legendary Dragon</option><option value="1042">1042 - Vampire Dragon</option><option value="1043">1043 - Alpine Dragon</option><option value="1044">1044 - Poo Dragon</option><option value="1045">1045 - Vulcano Dragon</option><option value="1046">1046 - Blizzard Dragon</option><option value="1047">1047 - Rattlesnake Dragon</option><option value="1048">1048 - Gold Dragon</option><option value="1049">1049 - Soccer Dragon</option><option value="1050">1050 - Platinum Dragon</option><option value="1051">1051 - Pirate Dragon</option><option value="1052">1052 - Crystal Dragon</option><option value="1053">1053 - Wind Dragon</option><option value="1054">1054 - Mirror Dragon</option><option value="1055">1055 - Coral Dragon</option><option value="1056">1056 - Spicy Dragon</option><option value="1057">1057 - Waterfall Dragon</option><option value="1058">1058 - Cactus Dragon</option><option value="1059">1059 - Storm Dragon</option><option value="1060">1060 - Ice Cream Dragon</option><option value="1061">1061 - Mojito Dragon</option><option value="1062">1062 - Chameleon Dragon</option><option value="1063">1063 - Hot Metal Dragon</option><option value="1064">1064 - Snowflake Dragon</option><option value="1065">1065 - Seashell Dragon</option><option value="1066">1066 - Moose Dragon</option><option value="1067">1067 - Dragonfly Dragon</option><option value="1068">1068 - Venom Dragon</option><option value="1069">1069 - Steampunk Dragon</option><option value="1070">1070 - Dark Fire Dragon</option><option value="1073">1073 - Pure Terra Dragon</option><option value="1074">1074 - Pure Flame Dragon</option><option value="1075">1075 - Pure Sea Dragon</option><option value="1076">1076 - Pure Nature Dragon</option><option value="1077">1077 - Pure Electric Dragon</option><option value="1078">1078 - Pure Ice Dragon</option><option value="1079">1079 - Pure Metal Dragon</option><option value="1080">1080 - Pure Dark Dragon</option><option value="1081">1081 - Pure Dragon</option><option value="1083">1083 - Fossil Dragon</option><option value="1084">1084 - Seahorse Dragon</option><option value="1085">1085 - Sky Dragon</option><option value="1086">1086 - Bat Dragon</option><option value="1092">1092 - Plankton Dragon</option><option value="1128">1128 - Ruby Dragon</option><option value="1129">1129 - Angry Dragon</option><option value="1130">1130 - Lava Dragon</option><option value="1135">1135 - Diamond Dragon</option><option value="1106">1106 - Music Dragon</option><option value="1110">1110 - Great White Dragon</option><option value="1102">1102 - Deep Forest Dragon</option><option value="1117">1117 - Carnival Dragon</option><option value="1126">1126 - Emerald Dragon</option><option value="1140">1140 - Archangel Dragon</option><option value="1158">1158 - Justice Dragon</option><option value="1159">1159 - Sun Dragon</option><option value="1160">1160 - Gaia Dragon</option><option value="1161">1161 - Luminsicent Dragon</option><option value="1163">1163 - War Dragon</option><option value="1164">1164 - Juggernaut Dragon</option><option value="1165">1165 - Colossal Dragon</option><option value="1166">1166 - Red Woods Dragon</option><option value="1167">1167 - Leviathan Dragon</option><option value="1169">1169 - Nirobi Dragon</option><option value="1170">1170 - Droconos Dragon</option></select>
+<input id="breed" value="Breed" onclick="if(this.value!='Stop') {this.value='Stop'; dragonbreed();}
+else { $('#result').html('');this.value='Breed'; earTimeout(breed);}" type="button" /><br />
+Breeding Result: <select id="regg"><option>Breeding Result</option></select>
+<input onclick="choosehabitat('a')" type="button" id='chida' value="Choose Hatchery" />
+<input onclick="collectegg()" type="button" value="Collect" /><br>
+Time Wait Stadium: <input id='wait' readonly="readonly" style="width:100px;"/>
+<input id='combat' onclick="combat()" style="display:none" type="button" value="Combat" />
+Food Farm: <select id="farm"><option value="0">All Food Farm</option></select>
+<select id="sfood"><option value="1">30sec</option><option value="2">5min</option><option value="3">30min</option><option value="4">2h</option><option value="5">6h</option><option value="6">12h</option><option value="7">1day</option><option value="8">1day12h</option><option value="9">2day</option></select>
+<input id='grow' value="Grow" onclick="growfood()" type="button" /> <br>
+Extended: <input id="getgold" value="Get Gold" onclick="if(this.value!='Stop') {this.value='Stop'; getgold();}
+else { $('#result').html('');this.value='Get Gold'; clearTimeout(gold);}" type="button" />
+<input id="getfood" value="Get Food" onclick="if(this.value!='Stop') {this.value='Stop'; getfood();}
+else { $('#result').html('');this.value='Get Food'; clearTimeout(food);}" type="button" />
+<input id="getexp" value="Gold -> Exp" onclick="if(this.value!='Stop') {this.value='Stop'; goldtoexp();}
+else { $('#result').html('');this.value='Gold -> Exp'; clearTimeout(time);}" type="button" />
+<input onclick="complete(0)" type="button" value="Complete Goal" />
+<input onclick="if(this.value=='Test Cmd') {this.value='Close Test';$('#testcmd').fadeIn('slow');} else {this.value='Test Cmd'; $('#testcmd').fadeOut('slow');}" type="button" value="Test Cmd" />
+</div>
+<div id='testcmd' style="display:none;margin-top:10px;margin-left:530px;">
+Args: <input id='args' value=""/><br>Cmd: <input id='cmd' value="" /><br>
+<input style="margin-left:90px;" value="Test This Cmd" onclick="testdragon()" type="button" /><br>
+<div id="test"></div>
+</div>
 
-		<title>Slide on Cloud - Reveal.js Presentation on OpenShift PaaS</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-
-				<section>
-					<h1>Reveal.js on</h1>
-					<h1>OpenShift</h1>
-					<h3>HTML Presentations on PaaS Made Easier</h3>
-                    <small>
-					<p>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></p>
-					<p>Powerd by <a href="http://openshift.com">OpenShift</a> / <a href="http://twitter.com/openshift">@openshift</a></p>
-                    </small>
-				</section>
-
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>OpenShift</p>
-						<a class="test" href="http://openshift.com">
-							<img width="457" height="376" src="https://openshift.redhat.com/community/sites/default/files/openstackplusopenshift.png" alt="OpenShift">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-							<section data-markdown>
-							  ## Markdown support
-
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#" class="image navigate-next">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Reveal.js source code on GitHub</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">OpenShift source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow Hakimel on Twitter</a></li>
-						<li><a href="http://twitter.com/openshift">Follow OpenShift on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-					<h3>AND OpenShift / openshift.com</h3>
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-
-		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
-
-	</body>
-</html>
